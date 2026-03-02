@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brasserie Artisanale de Sarlat — Brassée 24 | Bières du Périgord</title>
+<meta name="description" content="Brasserie Artisanale de Sarlat, créatrice de la gamme Brassée 24. Bières artisanales brassées en Dordogne depuis 2016. Blonde, Ambrée, Blanche, Pale Ale, Stout, Triple et Noix.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--noir:#1C1410;
+--noir-deep:#0E0A07;
+--brun:#3A2E24;
+--gold:#C8A254;
+--gold-hover:#B8943F;
+--gold-glow:rgba(200,162,84,.15);
+--gold-light:rgba(200,162,84,.08);
+--cream:#FFFBF5;
+--cream-mid:#FFF5E8;
+--warm:#F8F0E3;
+--warm-dark:#EDE2D0;
+--charcoal:#1E1A16;
+--text:#3D3530;
+--text-light:#7A6F65;
+--white:#FFFFFF;
+--amber:#D4A853;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{font-family:'Playfair Display',serif;line-height:1.15;font-weight:700;color:var(--charcoal)}
+img{max-width:100%;height:auto}
+
+.fade-up{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.fade-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
+.fade-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
+.fade-scale{opacity:0;transform:scale(.92);transition:opacity .6s ease,transform .6s ease}
+.visible{opacity:1!important;transform:none!important}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2.5rem;height:72px;display:flex;align-items:center;justify-content:space-between;transition:all .4s ease;background:transparent}
+.nav.scrolled{background:rgba(255,251,245,.97);backdrop-filter:blur(14px);box-shadow:0 2px 24px rgba(28,20,16,.08)}
+.nav-brand{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.nav-brand img{height:42px;width:auto}
+.nav-links{display:flex;gap:.2rem;list-style:none}
+.nav-links a{text-decoration:none;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:500;padding:.5rem 1rem;border-radius:8px;transition:all .3s ease;letter-spacing:.01em}
+.nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.8)}
+.nav:not(.scrolled) .nav-links a:hover{color:var(--white);background:rgba(255,255,255,.1)}
+.nav.scrolled .nav-links a{color:var(--text)}
+.nav.scrolled .nav-links a:hover{color:var(--gold);background:var(--warm)}
+.nav-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--white);text-decoration:none;font-family:'Inter',sans-serif;font-weight:600;font-size:.82rem;padding:.6rem 1.3rem;border-radius:50px;transition:all .3s ease}
+.nav-cta:hover{background:var(--gold-hover);transform:translateY(-1px);box-shadow:0 6px 20px rgba(200,162,84,.35)}
+.nav-cta svg{width:16px;height:16px}
+.nav-burger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.nav-burger span{width:26px;height:2.5px;border-radius:2px;transition:all .3s ease;display:block}
+.nav:not(.scrolled) .nav-burger span{background:var(--white)}
+.nav.scrolled .nav-burger span{background:var(--charcoal)}
+.nav-mobile{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,251,245,.98);backdrop-filter:blur(20px);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.nav-mobile.open{display:flex}
+.nav-mobile a{font-family:'Inter',sans-serif;font-size:1.3rem;font-weight:600;color:var(--brun);text-decoration:none;padding:.8rem 2rem;border-radius:12px;transition:background .3s}
+.nav-mobile a:hover{background:var(--warm)}
+
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,var(--noir-deep) 0%,var(--noir) 40%,var(--brun) 100%)}
+.hero-mesh{position:absolute;inset:0;opacity:.06;background:radial-gradient(ellipse at 30% 80%,var(--gold) 0%,transparent 50%),radial-gradient(ellipse at 70% 20%,var(--amber) 0%,transparent 40%)}
+.hero-grain{position:absolute;inset:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero-blob-1{position:absolute;width:600px;height:600px;border-radius:52% 48% 62% 38%/58% 42% 58% 42%;background:rgba(200,162,84,.05);top:-180px;right:-120px;animation:morphB 20s ease-in-out infinite}
+.hero-blob-2{position:absolute;width:400px;height:400px;border-radius:42% 58% 35% 65%/55% 45% 55% 45%;background:rgba(200,162,84,.04);bottom:-120px;left:-80px;animation:morphB 16s ease-in-out infinite reverse}
+@keyframes morphB{0%,100%{border-radius:52% 48% 62% 38%/58% 42% 58% 42%}33%{border-radius:38% 62% 48% 52%/42% 58% 42% 58%}66%{border-radius:58% 42% 55% 45%/48% 52% 62% 38%}}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 2.5rem;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center;min-height:100vh}
+.hero-text{padding:6rem 0 4rem}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(200,162,84,.15);border:1px solid rgba(200,162,84,.25);color:var(--gold);font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.45rem 1.1rem;border-radius:50px;margin-bottom:2rem}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
+.hero-title{font-size:clamp(2.4rem,5vw,3.8rem);color:var(--white);margin-bottom:1.2rem;letter-spacing:-.02em;line-height:1.1}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:1.1rem;color:rgba(255,255,255,.65);max-width:500px;margin-bottom:2.5rem;line-height:1.75;font-weight:300}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:'Inter',sans-serif;font-weight:600;font-size:.88rem;text-decoration:none;padding:.9rem 1.8rem;border-radius:50px;transition:all .3s ease;cursor:pointer;border:none;letter-spacing:.01em}
+.btn-gold{background:var(--gold);color:var(--white)}
+.btn-gold:hover{background:var(--gold-hover);transform:translateY(-2px);box-shadow:0 10px 30px rgba(200,162,84,.4)}
+.btn-ghost{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
+.btn svg{width:18px;height:18px}
+
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center;padding:4rem 0}
+.hero-photo{width:100%;max-width:400px;border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.35);position:relative}
+.hero-photo img{width:100%;height:360px;object-fit:cover;display:block}
+.hero-stat{position:absolute;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);padding:1rem 1.3rem;border-radius:16px;color:var(--white)}
+.hero-stat-1{bottom:-15px;right:-15px}
+.hero-stat-2{top:30px;left:-25px}
+.hero-stat strong{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:800;display:block;line-height:1;color:var(--gold)}
+.hero-stat span{font-size:.75rem;opacity:.7;font-weight:300}
+
+.hero-wave{position:absolute;bottom:-2px;left:0;right:0;z-index:3}
+.hero-wave svg{display:block;width:100%;height:auto}
+
+.section{padding:6rem 2.5rem;position:relative}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-tag{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;display:flex;align-items:center;gap:.8rem}
+.section-tag::before{content:'';width:32px;height:2px;background:var(--gold);border-radius:1px}
+.section-heading{font-size:clamp(1.9rem,3.5vw,2.6rem);color:var(--charcoal);margin-bottom:.8rem;letter-spacing:-.02em}
+.section-heading em{font-style:italic;color:var(--gold)}
+.section-desc{font-size:1.02rem;color:var(--text-light);max-width:560px;line-height:1.7}
+
+/* Bières */
+.bieres{background:var(--cream)}
+.bieres-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.biere-card{background:var(--white);border-radius:16px;padding:2.2rem 1.8rem;position:relative;overflow:hidden;transition:all .4s ease;border:1px solid rgba(200,162,84,.08);cursor:default;text-align:center}
+.biere-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold);transform:scaleX(0);transition:transform .4s ease;transform-origin:left;border-radius:0 0 2px 2px}
+.biere-card:hover::before{transform:scaleX(1)}
+.biere-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(28,20,16,.1)}
+.biere-icon{width:60px;height:60px;margin:0 auto 1.2rem;background:var(--gold-glow);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .3s}
+.biere-card:hover .biere-icon{background:var(--gold)}
+.biere-icon svg{width:28px;height:28px;color:var(--gold);transition:color .3s}
+.biere-card:hover .biere-icon svg{color:var(--white)}
+.biere-card h3{font-size:1.05rem;margin-bottom:.5rem;font-weight:700}
+.biere-card p{font-size:.88rem;color:var(--text-light);line-height:1.6}
+
+/* Histoire */
+.histoire{background:var(--warm);position:relative}
+.histoire::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--warm-dark),transparent)}
+.histoire-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem}
+.histoire-photo{border-radius:20px;overflow:hidden;box-shadow:0 20px 50px rgba(28,20,16,.12);position:relative}
+.histoire-photo img{width:100%;height:380px;object-fit:cover;display:block}
+.histoire-text p{font-size:1rem;color:var(--text);line-height:1.8;margin-bottom:1.2rem}
+.histoire-text p:last-child{margin-bottom:0}
+
+/* Galerie */
+.gallery{background:var(--cream);position:relative}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
+.gallery-item{border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3;cursor:default;transition:transform .3s ease}
+.gallery-item:hover{transform:scale(1.02)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.gallery-item:hover img{transform:scale(1.08)}
+.gallery-item .gallery-label{position:absolute;bottom:0;left:0;right:0;padding:.8rem 1rem;background:linear-gradient(transparent,rgba(14,10,7,.8));color:var(--white);font-family:'Inter',sans-serif;font-size:.78rem;font-weight:500;letter-spacing:.02em}
+
+/* Bandeau Dégustation */
+.degustation-band{background:var(--gold);padding:2.5rem;text-align:center;position:relative;overflow:hidden}
+.degustation-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,.03) 20px,rgba(255,255,255,.03) 40px)}
+.degustation-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap}
+.degustation-text{color:var(--white);font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700}
+.degustation-text span{display:block;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:400;opacity:.9;margin-top:.3rem}
+.degustation-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--white);color:var(--gold);font-family:'Inter',sans-serif;font-weight:700;font-size:.95rem;padding:.85rem 2rem;border-radius:50px;text-decoration:none;transition:all .3s ease}
+.degustation-btn:hover{transform:scale(1.05);box-shadow:0 8px 25px rgba(0,0,0,.15)}
+.degustation-btn svg{width:18px;height:18px}
+
+/* Contact */
+.contact{background:var(--warm);position:relative}
+.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:4rem;margin-top:3rem}
+.contact-cards{display:grid;gap:1.2rem}
+.contact-card{display:flex;align-items:flex-start;gap:1.2rem;background:var(--white);padding:1.5rem;border-radius:14px;border:1px solid rgba(200,162,84,.08);transition:all .3s ease}
+.contact-card:hover{border-color:var(--gold);box-shadow:0 4px 20px rgba(200,162,84,.08)}
+.contact-card-icon{width:44px;height:44px;min-width:44px;background:var(--gold-glow);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.contact-card-icon svg{width:20px;height:20px;color:var(--gold);stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.contact-card h4{font-size:.95rem;margin-bottom:.3rem;font-weight:600;font-family:'Inter',sans-serif}
+.contact-card p,.contact-card a{font-size:.9rem;color:var(--text-light);text-decoration:none;line-height:1.5}
+.contact-card a:hover{color:var(--gold)}
+.contact-hours{background:var(--white);border-radius:18px;padding:2.2rem;border:1px solid rgba(200,162,84,.08)}
+.contact-hours h3{font-size:1.15rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+.contact-hours h3 svg{width:20px;height:20px;color:var(--gold)}
+.hours-row{display:flex;justify-content:space-between;padding:.65rem 0;border-bottom:1px dashed rgba(200,162,84,.15);font-size:.88rem}
+.hours-row:last-child{border-bottom:none}
+.hours-day{font-weight:600;color:var(--charcoal)}
+.hours-time{color:var(--text-light)}
+.map-btn{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;background:var(--noir);color:var(--white);text-decoration:none;font-family:'Inter',sans-serif;font-weight:600;font-size:.85rem;padding:.8rem 1.6rem;border-radius:50px;transition:all .3s ease}
+.map-btn:hover{background:var(--noir-deep);transform:translateY(-2px);box-shadow:0 6px 20px rgba(28,20,16,.3)}
+.map-btn svg{width:16px;height:16px}
+
+footer{background:var(--noir-deep);color:rgba(255,255,255,.6);padding:3rem 2.5rem}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-brand{display:flex;align-items:center;gap:.6rem}
+.footer-brand img{height:30px;width:auto;opacity:.9}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--white)}
+.footer-copy{font-size:.78rem;letter-spacing:.02em}
+.footer-copy a{color:var(--gold);text-decoration:none}
+.footer-copy a:hover{text-decoration:underline}
+
+@media(max-width:900px){
+.nav-links,.nav-cta{display:none}
+.nav-burger{display:flex}
+.hero-content{grid-template-columns:1fr;gap:2rem;text-align:center;padding-top:100px}
+.hero-text{padding:2rem 0 0}
+.hero-sub{margin-left:auto;margin-right:auto}
+.hero-actions{justify-content:center}
+.hero-visual{padding:0 0 3rem}
+.hero-photo{max-width:300px;margin:0 auto}
+.hero-stat-1{bottom:10px;right:0}
+.hero-stat-2{top:10px;left:0}
+.bieres-grid{grid-template-columns:1fr}
+.histoire-grid{grid-template-columns:1fr;gap:2rem}
+.gallery-grid{grid-template-columns:1fr 1fr}
+.contact-grid{grid-template-columns:1fr;gap:2rem}
+.degustation-inner{flex-direction:column;gap:1rem}
+.footer-inner{flex-direction:column;text-align:center;gap:.5rem}
+}
+@media(max-width:600px){
+.hero-title{font-size:clamp(2rem,7vw,2.6rem)}
+.gallery-grid{grid-template-columns:1fr}
+.section{padding:4rem 1.5rem}
+.nav{padding:0 1.2rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="navbar">
+<a href="#" class="nav-brand">
+<img src="img/logo.png" alt="Brasserie Artisanale de Sarlat">
+</a>
+<ul class="nav-links">
+<li><a href="#bieres">Nos bières</a></li>
+<li><a href="#histoire">Notre histoire</a></li>
+<li><a href="#galerie">Galerie</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a href="tel:0648394518" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>06 48 39 45 18</a>
+<button class="nav-burger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</nav>
+
+<div class="nav-mobile" id="mobileNav">
+<a href="#bieres" onclick="document.getElementById('mobileNav').classList.remove('open')">Nos bières</a>
+<a href="#histoire" onclick="document.getElementById('mobileNav').classList.remove('open')">Notre histoire</a>
+<a href="#galerie" onclick="document.getElementById('mobileNav').classList.remove('open')">Galerie</a>
+<a href="#contact" onclick="document.getElementById('mobileNav').classList.remove('open')">Contact</a>
+</div>
+
+<section class="hero">
+<div class="hero-bg"></div>
+<div class="hero-mesh"></div>
+<div class="hero-grain"></div>
+<div class="hero-blob-1"></div>
+<div class="hero-blob-2"></div>
+<div class="hero-content">
+<div class="hero-text">
+<div class="hero-badge"><div class="hero-badge-dot"></div>Brassée en Périgord Noir</div>
+<h1 class="hero-title">Bières artisanales<br>du <em>Périgord</em></h1>
+<p class="hero-sub">Depuis 2016, la Brasserie Artisanale de Sarlat élabore la gamme <strong>Brassée 24</strong> avec les meilleurs malts et houblons, au coeur de la Dordogne.</p>
+<div class="hero-actions">
+<a href="#bieres" class="btn btn-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 8v4l3 3"/></svg>Découvrir nos bières</a>
+<a href="#contact" class="btn btn-ghost">Nous contacter</a>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-photo fade-scale">
+<img src="img/fond.jpg" alt="Bières et plats artisanaux de la Brasserie Sarlat">
+</div>
+<div class="hero-stat hero-stat-1 fade-scale">
+<strong>24</strong>
+<span>Département<br>Dordogne</span>
+</div>
+<div class="hero-stat hero-stat-2 fade-scale">
+<strong>2016</strong>
+<span>Année de<br>création</span>
+</div>
+</div>
+</div>
+<div class="hero-wave"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#FFFBF5"/></svg></div>
+</section>
+
+<!-- NOS BIÈRES -->
+<section class="section bieres" id="bieres">
+<div class="section-inner">
+<div class="section-tag">La gamme Brassée 24</div>
+<h2 class="section-heading">Nos <em>bières artisanales</em></h2>
+<p class="section-desc">Brassées à Sarlat-la-Canéda avec des malts et houblons sélectionnés pour leur qualité. Chaque bière reflète le caractère et le terroir du Périgord.</p>
+<div class="bieres-grid">
+
+<div class="biere-card fade-up">
+<div class="biere-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg></div>
+<h3>Blonde</h3>
+<p>Légère et rafraîchissante, notre blonde est une bière de caractère aux notes de céréales dorées. Également disponible en version BIO.</p>
+</div>
+
+<div class="biere-card fade-up">
+<div class="biere-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg></div>
+<h3>Ambrée</h3>
+<p>Ronde et chaleureuse, l'ambrée dévoile des arômes de caramel et de fruits secs. Un équilibre parfait entre douceur et amertume.</p>
+</div>
+
+<div class="biere-card fade-up">
+<div class="biere-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg></div>
+<h3>Blanche</h3>
+<p>Fraîche et légèrement acidulée, la blanche se distingue par ses notes d'agrumes et d'épices. Idéale pour les beaux jours en Dordogne.</p>
+</div>
+
+<div class="biere-card fade-up">
+<div class="biere-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg></div>
+<h3>Pale Ale</h3>
+<p>Houblonnée et aromatique, la Pale Ale offre un bouquet floral et une amertume franche. Pour les amateurs de bières de caractère.</p>
+</div>
+
+<div class="biere-card fade-up">
+<div class="biere-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg></div>
+<h3>Stout</h3>
+<p>Noire et intense, la Stout révèle des saveurs de café torréfié et de chocolat noir. Complexe et onctueuse en bouche.</p>
+</div>
+
+<div class="biere-card fade-up">
+<div class="biere-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg></div>
+<h3>Triple</h3>
+<p>Puissante et complexe, la Triple allie richesse maltée et notes fruitées. Une bière de dégustation aux arômes généreux.</p>
+</div>
+
+<div class="biere-card fade-up">
+<div class="biere-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+<h3>Bière à la Noix</h3>
+<p>Spécialité du Périgord, cette bière unique est élaborée avec de la liqueur de noix locale. Un mariage subtil entre houblon et terroir.</p>
+</div>
+
+<div class="biere-card fade-up">
+<div class="biere-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="6"/></svg></div>
+<h3>Limonade &amp; Ginger Beer BIO</h3>
+<p>Boissons sans alcool, certifiées biologiques. Limonade artisanale et Ginger Beer pétillante, brassées avec le même soin que nos bières.</p>
+</div>
+
+<div class="biere-card fade-up">
+<div class="biere-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 01-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 000 4h4v-4h-4z"/></svg></div>
+<h3>Coffrets Cadeaux</h3>
+<p>Coffrets de 2 ou 4 bières avec verres assortis, et lots de bouteilles 75cl avec sous-bocks. Le cadeau idéal du Périgord.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- NOTRE HISTOIRE -->
+<section class="section histoire" id="histoire">
+<div class="section-inner">
+<div class="histoire-grid">
+<div class="histoire-photo fade-left">
+<img src="img/photo1.jpg" alt="Ambiance brasserie artisanale">
+</div>
+<div class="histoire-text fade-right">
+<div class="section-tag">Depuis 2016</div>
+<h2 class="section-heading">L'histoire de la <em>Brassée 24</em></h2>
+<p>La Brasserie Artisanale de Sarlat est née de la rencontre entre <strong>Xavier Gombert</strong>, ingénieur agronome passionné par le monde brassicole, et <strong>Jean-Yves Fauste</strong>, ancien champion du monde de parapente reconverti dans l'artisanat.</p>
+<p>Ensemble, ils ont créé en 2016 la gamme <strong>Brassée 24</strong>, un clin d'oeil au département de la Dordogne. Leur ambition : brasser des bières de caractère qui reflètent le terroir du Périgord Noir.</p>
+<p>Installés dans la zone industrielle de Madrazès à Sarlat-la-Canéda, ils sélectionnent les meilleurs malts et houblons pour élaborer une gamme variée, de la blonde légère à la stout intense, en passant par leur spécialité à la noix du Périgord.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GALERIE -->
+<section class="section gallery" id="galerie">
+<div class="section-inner">
+<div class="section-tag">Nos produits</div>
+<h2 class="section-heading">L'univers <em>Brassée 24</em></h2>
+<p class="section-desc">Des bières artisanales brassées avec passion au coeur du Périgord Noir, à déguster entre amis ou en famille.</p>
+<div class="gallery-grid">
+<div class="gallery-item fade-up">
+<img src="img/fond.jpg" alt="Accords mets et bières artisanales">
+<div class="gallery-label">Accords mets et bières</div>
+</div>
+<div class="gallery-item fade-up">
+<img src="img/photo2.jpg" alt="Dégustation de bières artisanales">
+<div class="gallery-label">Dégustation</div>
+</div>
+<div class="gallery-item fade-up">
+<img src="img/photo3.jpg" alt="Bière artisanale du Périgord">
+<div class="gallery-label">Brassée en Dordogne</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BANDEAU DÉGUSTATION -->
+<div class="degustation-band">
+<div class="degustation-inner">
+<div class="degustation-text">Envie de goûter nos bières artisanales ?<span>Retrouvez la gamme Brassée 24 chez les cavistes et épiceries fines du Périgord</span></div>
+<a href="tel:0648394518" class="degustation-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>06 48 39 45 18</a>
+</div>
+</div>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+<div class="section-inner">
+<div class="section-tag">Nous trouver</div>
+<h2 class="section-heading">Contactez la <em>brasserie</em></h2>
+<div class="contact-grid">
+<div class="contact-cards">
+<div class="contact-card fade-up">
+<div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+<div><h4>Adresse</h4><p>ZI de Madrazès, Rue Blaise Pascal<br>24200 Sarlat-la-Canéda</p></div>
+</div>
+<div class="contact-card fade-up">
+<div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+<div><h4>Téléphone</h4><a href="tel:0648394518">06 48 39 45 18</a></div>
+</div>
+<div class="contact-card fade-up">
+<div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+<div><h4>Email</h4><a href="mailto:brasseriejyx@gmail.com">brasseriejyx@gmail.com</a></div>
+</div>
+<a href="https://www.google.com/maps/search/Brasserie+Artisanale+Sarlat+ZI+Madrazes" target="_blank" rel="noopener" class="map-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Voir sur la carte</a>
+</div>
+<div class="contact-hours">
+<h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Informations pratiques</h3>
+<div class="hours-row"><span class="hours-day">Adresse</span><span class="hours-time">ZI de Madrazès</span></div>
+<div class="hours-row"><span class="hours-day">Code postal</span><span class="hours-time">24200 Sarlat-la-Canéda</span></div>
+<div class="hours-row"><span class="hours-day">SIREN</span><span class="hours-time">817 975 659</span></div>
+<div class="hours-row"><span class="hours-day">Création</span><span class="hours-time">2016</span></div>
+<div class="hours-row"><span class="hours-day">Activité</span><span class="hours-time">Fabrication de bière</span></div>
+<div class="hours-row"><span class="hours-day">Distribution</span><span class="hours-time">Cavistes &amp; épiceries fines</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<div class="footer-inner">
+<div class="footer-brand">
+<img src="img/logo.png" alt="Brasserie Sarlat">
+<span class="footer-brand-name">Brassée 24</span>
+</div>
+<div class="footer-copy">SAS JYX — Brasserie Artisanale de Sarlat — SIREN 817 975 659 — <a href="mailto:brasseriejyx@gmail.com">brasseriejyx@gmail.com</a></div>
+</div>
+</footer>
+
+<script>
+// Navbar scroll
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+// Fade in
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up,.fade-left,.fade-right,.fade-scale').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
